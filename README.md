@@ -52,6 +52,22 @@ def makeMove(self, moveRow, numberOfPops):
 
 ## Functions
 
+### stringToArray
+```python
+def stringToArray(string):
+    if len(string) != 36:
+        raise ValueError("Input string must have exactly 36 characters.")
+    
+    array = []
+    for i in range(0, len(string), 6):
+        row = [int(char) for char in string[i:i+6]]
+        array.append(row)
+    return array
+```
+
+`string`: The current board position in upi position notation, which is a 1d 36 element array
+- returns a 2d list with the shape of (6, 6), suitable to be fed into the PopPit class to create a PopIt instance
+
 ### printPopIt
 
 ```python
