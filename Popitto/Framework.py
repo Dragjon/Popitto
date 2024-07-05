@@ -31,6 +31,16 @@ class PopIt:
     return PopIt(board=new_board, turn=new_turn)
 
 
+def stringToArray(string):
+    if len(string) != 36:
+        raise ValueError("Input string must have exactly 36 characters.")
+    
+    array = []
+    for i in range(0, len(string), 6):
+        row = [int(char) for char in string[i:i+6]]
+        array.append(row)
+    return array
+
 def printPopIt(PopIt, fancy=False):
   for row in range(6):
     print(f"{row + 1} ", end="")
